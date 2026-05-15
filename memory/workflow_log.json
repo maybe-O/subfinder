@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "steps": "subfinder->dns",
+    "outcome": "发现3个高价值子域",
+    "roi": 0.75,
+    "target": "",
+    "timestamp": 1778297239.1480563
+  },
+  {
+    "id": 2,
+    "steps": "subfinder(hackertarget+crtsh)->dns-brute(failed)",
+    "outcome": "78子域，含15高价值(crm/login/passport/srm)，hackertarget贡献97%，测试环境暴露面广",
+    "roi": 0.9,
+    "target": "",
+    "timestamp": 1778742417.2642887
+  },
+  {
+    "id": 3,
+    "steps": "fofa-domain->fofa-cert",
+    "outcome": "发现33个高价值资产,涵盖ISEC安防平台/Elasticsearch/Portainer/IDP/远程接入,证书维度补充50+设备IP",
+    "roi": 0.9,
+    "target": "",
+    "timestamp": 1778748291.388333
+  },
+  {
+    "id": 4,
+    "steps": "fofa-reverse-lookup->fofa-domain->fofa-download-focus",
+    "outcome": "精准发现AFH数字化平台下载点,资产面虽小但聚焦有效",
+    "roi": 0.85,
+    "target": "",
+    "timestamp": 1778751102.0128248
+  },
+  {
+    "id": 5,
+    "steps": "fofa-domain->fofa-cert->kali-nmap",
+    "outcome": "发现76子域含4预发布+CI/CD+CRM+支付,证书补充50CDN IP,Nmap验证2主机存活",
+    "roi": 0.9,
+    "target": "",
+    "timestamp": 1778752696.3298116
+  },
+  {
+    "id": 6,
+    "steps": "fofa-domain(multi-6domains)->fofa-cert(sampled)",
+    "outcome": "6域名3292资产,含开发者/实习平台等大规模模式,cert采样20K IP",
+    "roi": 0.85,
+    "target": "",
+    "timestamp": 1778754339.213437
+  },
+  {
+    "id": 7,
+    "steps": "fofa-domain->nmap->gobuster-async->robots.txt-deepdive->sitemap-enum",
+    "outcome": "robots.txt泄漏ICT/AR/HMS隐藏路径,6个sitemap发现266+页面,数十Kit名称暴露,全面绕过WAF Wildcard防御",
+    "roi": 0.95,
+    "target": "",
+    "timestamp": 1778765073.570632
+  },
+  {
+    "id": 8,
+    "steps": "fofa-domain(multi-4domains)->fofa-cert",
+    "outcome": "4域名3057资产,philips.com占78%,signify独立428,识别dev/api子域模式",
+    "roi": 0.85,
+    "target": "",
+    "timestamp": 1778765479.2904594
+  },
+  {
+    "id": 9,
+    "steps": "fofa(multi)->nmap(cdn)->robots.txt->sitemap",
+    "outcome": "Cloudflare CDN阻断了Nmap服务指纹,但robots.txt发现3个sandbox+2个sitemap,被动方式绕过CDN有效",
+    "roi": 0.75,
+    "target": "",
+    "timestamp": 1778766077.9340963
+  },
+  {
+    "id": 10,
+    "steps": "fofa-domain->fofa-cert->kali-nmap(attempted-failed)",
+    "outcome": "41子域含AI全栈+OA+供应商+5UAT,165证书IP;Kali Nmap因网络不可达失败,FOFA数据部分替代",
+    "roi": 0.7,
+    "target": "",
+    "timestamp": 1778768152.1330273
+  },
+  {
+    "id": 11,
+    "steps": "fofa-reverse->fofa-domain(small-target)->kali-nmap(offline)",
+    "outcome": "6子域含SSH开放+ERP暴露;FOFA反查准确但匹配到异名实体;Kali断开未完成验证",
+    "roi": 0.65,
+    "target": "",
+    "timestamp": 1778769068.7913482
+  },
+  {
+    "id": 12,
+    "steps": "fofa-db->gobuster-dns->amass-passive->kali-nmap",
+    "outcome": "3292 hosts classified across 6 domains, CloudWAF/ALB identified, 81 high-value targets",
+    "roi": 0.7,
+    "target": "",
+    "timestamp": 1778772413.1601346
+  },
+  {
+    "id": 13,
+    "steps": "fofa->subfinder->amass->nmap->dnsrecon->gobuster-dns->analysis",
+    "outcome": "美的高质量资产收集: 3534 unique hosts, 发现DNS通配符滥用(166+赌博子域), API网关活体验证成功, 7个内部服务不可达",
+    "roi": 0.72,
+    "target": "",
+    "timestamp": 1778774802.0763803
+  }
+]

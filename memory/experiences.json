@@ -1,0 +1,314 @@
+[
+  {
+    "id": 1,
+    "category": "pattern",
+    "content": "dev子域常暴露调试接口",
+    "tags": [
+      "dev",
+      "debug",
+      "high-value"
+    ],
+    "confidence": 0.8,
+    "hit_count": 1,
+    "created_at": 1778296693.2678368,
+    "updated_at": 1778297238.9229662
+  },
+  {
+    "id": 2,
+    "category": "pattern",
+    "content": "subfinder hackertarget源无需API token即可使用，首次调用即返回大量结果，适合作为兜底方案",
+    "tags": [
+      "subfinder",
+      "hackertarget",
+      "free",
+      "fallback"
+    ],
+    "confidence": 0.9,
+    "hit_count": 0,
+    "created_at": 1778742417.1723573,
+    "updated_at": 1778742417.1723573
+  },
+  {
+    "id": 3,
+    "category": "pattern",
+    "content": "安防/IoT公司的FOFA资产中证书维度数据量极大(万级),可从设备证书中反向发现内部服务IP和域名;domain维度则集中在子域名,两者互补效果好",
+    "tags": [
+      "fofa",
+      "cert",
+      "iot",
+      "security",
+      "dual-query"
+    ],
+    "confidence": 0.85,
+    "hit_count": 0,
+    "created_at": 1778748284.6730118,
+    "updated_at": 1778748284.6730118
+  },
+  {
+    "id": 4,
+    "category": "pattern",
+    "content": "通配符DNS可能导致大量非业务子域被误收录(如停放域名/SEO垃圾),分析时应识别并标注为可疑,不纳入高价值统计",
+    "tags": [
+      "wildcard",
+      "dns",
+      "false-positive",
+      "parked"
+    ],
+    "confidence": 0.9,
+    "hit_count": 0,
+    "created_at": 1778748284.7613072,
+    "updated_at": 1778748284.7613072
+  },
+  {
+    "id": 5,
+    "category": "pattern",
+    "content": "传统制造/快消企业的数字资产面通常极小(1-2子域),关注点应放在非标端口(8086/6060等)而非子域名收集;AFH(B2B经销商平台)是文件下载主要入口",
+    "tags": [
+      "manufacturing",
+      "fmcg",
+      "small-surface",
+      "download",
+      "non-standard-port"
+    ],
+    "confidence": 0.8,
+    "hit_count": 0,
+    "created_at": 1778751101.9308207,
+    "updated_at": 1778751101.9308207
+  },
+  {
+    "id": 6,
+    "category": "pattern",
+    "content": "大型科技企业的预发布环境命名规律: stg-前缀(stg-code), pre-前缀(pre-myshop), opsg-preapi-前缀;这些环境往往安全控制弱于生产,应优先扫描",
+    "tags": [
+      "pre-prod",
+      "naming",
+      "stg",
+      "pre",
+      "large-enterprise"
+    ],
+    "confidence": 0.85,
+    "hit_count": 0,
+    "created_at": 1778752689.8894038,
+    "updated_at": 1778752689.8894038
+  },
+  {
+    "id": 7,
+    "category": "pattern",
+    "content": "知名品牌title查询极其宽泛(OPPO title=12万),不宜用于域名发现;应直接用domain/cert查询或限定title+domain组合",
+    "tags": [
+      "fofa",
+      "brand",
+      "title-broad",
+      "query-strategy"
+    ],
+    "confidence": 0.9,
+    "hit_count": 0,
+    "created_at": 1778752689.9752448,
+    "updated_at": 1778752689.9752448
+  },
+  {
+    "id": 8,
+    "category": "pattern",
+    "content": "超大型科技企业(>1000子域)的FOFA domain查询用size=10000可单次拉取全量;证书查询对子域发现无意义(海量裸IP),但可用于IoT/设备资产摸底",
+    "tags": [
+      "large-enterprise",
+      "size-10000",
+      "cert-irrelevant",
+      "strategy"
+    ],
+    "confidence": 0.9,
+    "hit_count": 0,
+    "created_at": 1778754332.7811105,
+    "updated_at": 1778754332.7811105
+  },
+  {
+    "id": 9,
+    "category": "pattern",
+    "content": "通配符DNS+开发者平台(如*.shixizhi.huawei.com)会生成海量虚假子域,归类为'平台/培训',不纳入高价值;需通过Nmap/HTTP探活区分存活主机",
+    "tags": [
+      "wildcard",
+      "dev-platform",
+      "shixizhi",
+      "false-positive"
+    ],
+    "confidence": 0.85,
+    "hit_count": 0,
+    "created_at": 1778754332.8661654,
+    "updated_at": 1778754332.8661654
+  },
+  {
+    "id": 10,
+    "category": "pattern",
+    "content": "robots.txt是绕过WAF目录爆破防御的最佳入口——即使gobuster被Wildcard 302/501完全拦截,robots.txt中的Disallow路径仍直接暴露隐藏目录结构;应始终优先抓取robots.txt",
+    "tags": [
+      "robots.txt",
+      "waf-bypass",
+      "hidden-paths",
+      "best-practice"
+    ],
+    "confidence": 0.95,
+    "hit_count": 0,
+    "created_at": 1778765062.7664237,
+    "updated_at": 1778765062.7664237
+  },
+  {
+    "id": 11,
+    "category": "pattern",
+    "content": "Sitemap(sitemap.xml/sitemap-index.xml)比目录爆破更可靠——能发现数百个真实URL路径;华为developer站点通过6个sitemap暴露了266+页面和数十个内部Kit名称",
+    "tags": [
+      "sitemap",
+      "url-discovery",
+      "recon"
+    ],
+    "confidence": 0.9,
+    "hit_count": 0,
+    "created_at": 1778765062.846949,
+    "updated_at": 1778765062.846949
+  },
+  {
+    "id": 12,
+    "category": "pattern",
+    "content": "gobuster dir模式无--wildcard参数,需用--exclude-length过滤Wildcard响应;-s和-b同时设置会冲突,需用-b\" \\清空默认404黑名单 --tags gobuster,dir,wildcard,exclude-length,parameters --confidence 0.85",
+    "tags": [],
+    "confidence": 0.7,
+    "hit_count": 0,
+    "created_at": 1778765062.9243143,
+    "updated_at": 1778765062.9243143
+  },
+  {
+    "id": 13,
+    "category": "pattern",
+    "content": "大型跨国公司常存在业务分拆但域名未完全剥离的情况(如Philips Lighting→Signify);FOFA cert查询可能同时覆盖母公司和子公司,需在报告中明确标注资产归属",
+    "tags": [
+      "spin-off",
+      "multinational",
+      "domain-attribution",
+      "signify"
+    ],
+    "confidence": 0.85,
+    "hit_count": 0,
+    "created_at": 1778765479.2108316,
+    "updated_at": 1778765479.2108316
+  },
+  {
+    "id": 14,
+    "category": "pattern",
+    "content": "当主站走Cloudflare CDN时,Nmap只能看到Cloudflare反向代理(无法穿透到源站);此时应转向子域枚举和robots.txt/sitemap等被动方式获取内部路径",
+    "tags": [
+      "cloudflare",
+      "cdn",
+      "nmap",
+      "robots.txt",
+      "sitemap"
+    ],
+    "confidence": 0.9,
+    "hit_count": 0,
+    "created_at": 1778766077.8553054,
+    "updated_at": 1778766077.8553054
+  },
+  {
+    "id": 15,
+    "category": "pattern",
+    "content": "传统食品/快消企业可能存在AI全栈暴露(aiapp/aiconsole/aiservice/aiupload/aitoolbox),这是数字化转型后的新型攻击面,需关注AI模型/数据集/上传端点安全",
+    "tags": [
+      "AI",
+      "digital-transformation",
+      "fmcg",
+      "upload",
+      "attack-surface"
+    ],
+    "confidence": 0.85,
+    "hit_count": 0,
+    "created_at": 1778768144.6636896,
+    "updated_at": 1778768144.6636896
+  },
+  {
+    "id": 16,
+    "category": "pattern",
+    "content": "旺旺集团UAT环境遵循命名规律: is-uat/wantbi-uat/wantdp-uat/wwstore-minip-uat/car-uat-cdn,后缀统一为-uat;中国企业常用is/oa/eoms/dss等缩写作为内部系统子域前缀",
+    "tags": [
+      "uat",
+      "naming-convention",
+      "china-enterprise",
+      "abbreviation"
+    ],
+    "confidence": 0.8,
+    "hit_count": 0,
+    "created_at": 1778768144.7441907,
+    "updated_at": 1778768144.7441907
+  },
+  {
+    "id": 17,
+    "category": "pattern",
+    "content": "FOFA反查无结果是真实信号——如宏泰记和金富士两次任务均证实传统食品企业无自有域名;不应降级到拼音盲猜,而应如实告知无数字资产",
+    "tags": [
+      "traditional-enterprise",
+      "no-digital-assets",
+      "reverse-lookup",
+      "honest-reporting"
+    ],
+    "confidence": 0.95,
+    "hit_count": 0,
+    "created_at": 1778769061.7394595,
+    "updated_at": 1778769061.7394595
+  },
+  {
+    "id": 18,
+    "category": "pattern",
+    "content": "企业名称可能撞名——如'金富士'匹配到餐厅POS系统而非食品制造;FOFA反查结果需结合title/业务场景判断是否为同一实体",
+    "tags": [
+      "name-collision",
+      "entity-matching",
+      "false-match"
+    ],
+    "confidence": 0.8,
+    "hit_count": 0,
+    "created_at": 1778769061.8170965,
+    "updated_at": 1778769061.8170965
+  },
+  {
+    "id": 19,
+    "category": "pattern",
+    "content": "Huawei uses CloudWAF (Server: CW) extensively - Nmap shows only reverse proxy layer",
+    "tags": [
+      "huawei",
+      "waf",
+      "cloudwaf",
+      "fingerprint"
+    ],
+    "confidence": 0.9,
+    "hit_count": 0,
+    "created_at": 1778772406.798031,
+    "updated_at": 1778772406.798031
+  },
+  {
+    "id": 20,
+    "category": "pattern",
+    "content": "Shixizhi subdomains on huawei.com are test/development environments using 59.39.0.x network",
+    "tags": [
+      "huawei",
+      "shixizhi",
+      "test",
+      "dev"
+    ],
+    "confidence": 0.85,
+    "hit_count": 0,
+    "created_at": 1778772416.6035285,
+    "updated_at": 1778772416.6035285
+  },
+  {
+    "id": 21,
+    "category": "pattern",
+    "content": "Wildcard DNS abuse: *.uat.midea.com and *.pre.midea.com all resolve to single IP 51.79.199.51 (OVH Canada) hosting gambling spam. Check FOFA results for *.uat / *.pre / *.test / *.dev patterns clustering on single IP",
+    "tags": [
+      "dns",
+      "wildcard",
+      "abuse",
+      "gambling"
+    ],
+    "confidence": 0.85,
+    "hit_count": 0,
+    "created_at": 1778774797.4457448,
+    "updated_at": 1778774797.4457448
+  }
+]

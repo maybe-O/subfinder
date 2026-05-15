@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "error": "subfinder输出非JSON行",
+    "correction": "跳过非JSON行",
+    "rule": "始终用try/except包裹JSON解析",
+    "applied_count": 1,
+    "timestamp": 1778297239.2547598
+  },
+  {
+    "id": 2,
+    "error": "PowerShell变量$host为只读保留变量，DNS爆破脚本中使用$host导致全部循环报错",
+    "correction": "PowerShell脚本中避免使用System.Management.Automation.Internal.Host.InternalHost/C:\\Users\\53518/，改用",
+    "rule": "powershell-avoid-reserved-vars",
+    "applied_count": 1,
+    "timestamp": 1778742420.5325897
+  }
+]

@@ -1,0 +1,200 @@
+{
+  "crtsh": {
+    "records": [
+      {
+        "score": 8.0,
+        "context": "通用域名",
+        "notes": "证书透明度，覆盖面广",
+        "timestamp": 1778296880.3191795
+      },
+      {
+        "score": 6.0,
+        "context": "科技公司",
+        "notes": "仅贡献1个子域(www.tplink.com)，但与hackertarget形成交叉验证，提升置信度",
+        "timestamp": 1778742410.2110364
+      }
+    ],
+    "avg_score": 7.0,
+    "total_uses": 2
+  },
+  "hackertarget": {
+    "records": [
+      {
+        "score": 9.0,
+        "context": "科技公司",
+        "notes": "subfinder hackertarget源无需API key，发现77/78子域，覆盖面广包含crm/internal/kb等诸多内部资产",
+        "timestamp": 1778742410.1223109
+      }
+    ],
+    "avg_score": 9.0,
+    "total_uses": 1
+  },
+  "fofa": {
+    "records": [
+      {
+        "score": 1.0,
+        "context": "科技公司",
+        "notes": "自定义代理https://fafaapi.ccwu.cc:8443/fofa.html超时不可达，两次任务均失败",
+        "timestamp": 1778742410.3020175
+      },
+      {
+        "score": 9.0,
+        "context": "安防/IoT公司",
+        "notes": "Python直调FOFA,4次查询获184唯一主机,含ISEC安防平台/Elasticsearch/Portainer等高价值资产;证书查询覆盖18K+设备证书",
+        "timestamp": 1778748271.8831737
+      },
+      {
+        "score": 9.0,
+        "context": "快消/制造企业",
+        "notes": "FOFA反查(title||icp||cert)成功发现zsjr.com;资产面极小(2子域)但精准命中AFH数字化平台下载点",
+        "timestamp": 1778751092.3097122
+      },
+      {
+        "score": 9.0,
+        "context": "大型科技/手机厂商",
+        "notes": "domain查询发现76子域(609总),含CRM/CI/CD/支付/认证/预发布等高价值资产;cert查询补充50个CDN IP",
+        "timestamp": 1778752679.4383621
+      },
+      {
+        "score": 9.0,
+        "context": "超大型科技企业",
+        "notes": "size=10000单次拉取4720条,全量覆盖huawei.com+5关联域;发现开发者平台/实习平台/通配符DNS等大规模资产模式",
+        "timestamp": 1778754322.8151994
+      },
+      {
+        "score": 8.0,
+        "context": "跨国500强企业",
+        "notes": "4域名4685+946+434+34=6100资产,全量拉取size=10000;Signify独立运营但FOFA仍关联,需注意子公司分拆后域名归属",
+        "timestamp": 1778765469.6659617
+      },
+      {
+        "score": 8.0,
+        "context": "美的(Midea) asset collection: FOFA found 3449 hosts via domain/cert queries. cert query found 43 cross-associated domains. Wildcard DNS abuse detected on *.uat.midea.com",
+        "notes": "",
+        "timestamp": 1778774778.8660808
+      }
+    ],
+    "avg_score": 7.57,
+    "total_uses": 7
+  },
+  "fofa-cert": {
+    "records": [
+      {
+        "score": 7.0,
+        "context": "安防/IoT公司",
+        "notes": "证书查询发现大量IoT设备IP,但大部分为裸IP无域名;与domain查询互补发现额外资产",
+        "timestamp": 1778748271.9780588
+      },
+      {
+        "score": 5.0,
+        "context": "快消/制造企业",
+        "notes": "证书查询仅发现2个额外IP,与主域高度重叠,对小型资产面企业贡献有限",
+        "timestamp": 1778751092.3923745
+      },
+      {
+        "score": 5.0,
+        "context": "超大型科技企业",
+        "notes": "证书查询3.8M+仅采样10K,对大企业贡献有限;主要用于IoT/设备IP发现,不再是子域发现主力",
+        "timestamp": 1778754322.8965778
+      }
+    ],
+    "avg_score": 5.67,
+    "total_uses": 3
+  },
+  "kali-nmap": {
+    "records": [
+      {
+        "score": 7.0,
+        "context": "大型科技公司",
+        "notes": "验证cloud/code存活(nginx),www.oppo.com DNS解析失败;nmap快速确认了2个高价值目标",
+        "timestamp": 1778752679.5258894
+      },
+      {
+        "score": 8.0,
+        "context": "超大型科技企业",
+        "notes": "验证3/4存活: developer(OpenResty全端口), appgallery/cloud(elb+华为WAF HWWAFSESID), auth DNS失败",
+        "timestamp": 1778754525.6985765
+      },
+      {
+        "score": 5.0,
+        "context": "跨国企业+Cloudflare",
+        "notes": "5目标仅1存活(Cloudflare CDN),其余全部超时;主站走Cloudflare WAF,无法获取源站服务指纹",
+        "timestamp": 1778766077.7766347
+      },
+      {
+        "score": 7.0,
+        "context": "huawei",
+        "notes": "Nmap confirmed CloudWAF+ALB architecture, useful for infrastructure fingerprinting",
+        "timestamp": 1778772404.001184
+      },
+      {
+        "score": 5.0,
+        "context": "midea scanning: 3 hosts confirmed active (www/OpenResty, openapi/Tengine, iot/filtered), 7 DNS resolution failures. Many internal hosts not publicly accessible",
+        "notes": "",
+        "timestamp": 1778774786.3086843
+      }
+    ],
+    "avg_score": 6.4,
+    "total_uses": 5
+  },
+  "kali-gobuster-dir": {
+    "records": [
+      {
+        "score": 4.0,
+        "context": "大型科技企业+WAF",
+        "notes": "3次启动才成功(参数踩坑),产出仅1条robots.txt;华为WAF Wildcard 302使目录爆破99%无效;不如直接抓robots.txt+sitemap",
+        "timestamp": 1778765073.4899638
+      }
+    ],
+    "avg_score": 4.0,
+    "total_uses": 1
+  },
+  "gobuster-dns": {
+    "records": [
+      {
+        "score": 2.0,
+        "context": "huawei",
+        "notes": "DNS enumeration heavily restricted by Huawei, 5000-word list only found 1 result",
+        "timestamp": 1778772398.4834614
+      }
+    ],
+    "avg_score": 2.0,
+    "total_uses": 1
+  },
+  "amass-passive": {
+    "records": [
+      {
+        "score": 3.0,
+        "context": "huawei",
+        "notes": "Amass passive only returned NS/MX infrastructure records",
+        "timestamp": 1778772401.1965086
+      }
+    ],
+    "avg_score": 3.0,
+    "total_uses": 1
+  },
+  "subfinder": {
+    "records": [
+      {
+        "score": 7.0,
+        "context": "found 265 subdomains across 6 midea domains, mostly crtsh+hackertarget. Good complement to FOFA",
+        "notes": "",
+        "timestamp": 1778774782.4399683
+      }
+    ],
+    "avg_score": 7.0,
+    "total_uses": 1
+  },
+  "kali-gobuster-dns": {
+    "records": [
+      {
+        "score": 3.0,
+        "context": "midea scanning: gobuster DNS found 0 results on all 6 domains - likely wildcard DNS blocking brute force enumeration",
+        "notes": "",
+        "timestamp": 1778774789.8752415
+      }
+    ],
+    "avg_score": 3.0,
+    "total_uses": 1
+  }
+}
